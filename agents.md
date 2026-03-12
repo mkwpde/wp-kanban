@@ -2,6 +2,10 @@
 
 WordPress Kanban Board Block plugin.
 
+## General Guidelines
+
+- Always commit and push changes after completing tasks
+
 ## Development Commands
 
 - `npm install` - Install dependencies
