@@ -26,13 +26,13 @@
 
 /* Editor preview board */
 .kanban-board-preview {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	display: flex;
 	gap: var(--kanban-gap);
 	padding: var(--kanban-gap);
 	background: var(--kanban-bg);
 	border-radius: var(--kanban-radius);
 	min-height: 200px;
+	overflow-x: auto;
 }
 
 .kanban-column-preview {
@@ -43,6 +43,9 @@
 	flex-direction: column;
 	gap: 10px;
 	min-height: 120px;
+	flex: 1;
+	min-width: 260px;
+	max-width: 320px;
 }
 
 .kanban-column-header-preview {
@@ -120,13 +123,13 @@
 
 /* Frontend board */
 .kanban-board {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	display: flex;
 	gap: var(--kanban-gap);
 	padding: var(--kanban-gap);
 	background: var(--kanban-bg);
 	border-radius: var(--kanban-radius);
 	min-height: 200px;
+	overflow-x: auto;
 }
 
 .kanban-column {
@@ -137,6 +140,9 @@
 	flex-direction: column;
 	gap: 10px;
 	min-height: 120px;
+	flex: 1;
+	min-width: 260px;
+	max-width: 320px;
 	transition: background 0.2s ease;
 
 	&.kanban-column--drag-over {
@@ -392,6 +398,13 @@
 @media (max-width: 600px) {
 	.kanban-board,
 	.kanban-board-preview {
-		grid-template-columns: 1fr;
+		flex-direction: column;
+		overflow-x: visible;
+	}
+
+	.kanban-column,
+	.kanban-column-preview {
+		min-width: 100%;
+		max-width: 100%;
 	}
 }
