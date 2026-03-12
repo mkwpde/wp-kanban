@@ -46,6 +46,7 @@ Commit types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore` (lower
 - `src/block.json` - Block metadata
 - `src/style.scss` / `src/editor.scss` - Styles
 - `.husky/` - Git hooks (currently has compatibility issue - see commit workflow)
+- `commitlint.config.js` - Commit message rules
 
 ## Key Features
 
