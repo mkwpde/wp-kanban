@@ -119,6 +119,69 @@ if ( ! function_exists( 'mkwpde_kanban_board_add_term_order_rest_field' ) ) {
 add_action( 'rest_api_init', 'mkwpde_kanban_board_add_term_order_rest_field' );
 
 /**
+ * Add Order column to kanban_column admin screen.
+ */
+if ( ! function_exists( 'mkwpde_kanban_board_add_order_column' ) ) {
+	function mkwpde_kanban_board_add_order_column( $columns ) {
+		$columns['order'] = __( 'Order', 'mkwpde-kanban-board' );
+		return $columns;
+	}
+}
+add_filter( 'manage_edit-kanban_column_columns', 'mkwpde_kanban_board_add_order_column' );
+
+if ( ! function_exists( 'mkwpde_kanban_board_order_column_content' ) ) {
+	function mkwpde_kanban_board_order_column_content( $content, $column_name, $term_id ) {
+		if ( 'order' === $column_name ) {
+			$order = get_term_meta( $term_id, 'order', true );
+			$content = esc_html( $order ?: '0' );
+		}
+		return $content;
+	}
+}
+add_filter( 'manage_kanban_column_custom_column', 'mkwpde_kanban_board_order_column_content', 10, 3 );
+
+if ( ! function_exists( 'mkwpde_kanban_board_make_order_column_sortable' ) ) {
+	function mkwpde_kanban_board_make_order_column_sortable( $columns ) {
+		$columns['order'] = 'order';
+		return $columns;
+	}
+}
+add_filter( 'manage_edit-kanban_column_sortable_columns', 'mkwpde_kanban_board_make_order_column_sortable' );
+
+if ( ! function_exists( 'mkwpde_kanban_board_order_column_request' ) ) {
+	function mkwpde_kanban_board_order_column_request( $query_vars ) {
+		if ( isset( $query_vars['orderby'] ) && 'order' === $query_vars['orderby'] ) {
+			$query_vars['meta_key'] = 'order';
+			$query_vars['orderby']  = 'meta_value_num';
+		}
+		return $query_vars;
+	}
+}
+add_filter( 'get_terms_args', 'mkwpde_kanban_board_order_column_request', 10, 2 );
+
+if ( ! function_exists( 'mkwpde_kanban_board_edit_order_field' ) ) {
+	function mkwpde_kanban_board_edit_order_field( $term ) {
+		$order = get_term_meta( $term->term_id, 'order', true );
+		?>
+		<tr class="form-field term-order-wrap">
+			<th scope="row"><label for="term-order"><?php esc_html_e( 'Order', 'mkwpde-kanban-board' ); ?></label></th>
+			<td><input type="number" name="term_order" id="term-order" value="<?php echo esc_attr( $order ?: 0 ); ?>" /></td>
+		</tr>
+		<?php
+	}
+}
+add_action( 'kanban_column_edit_form_fields', 'mkwpde_kanban_board_edit_order_field' );
+
+if ( ! function_exists( 'mkwpde_kanban_board_save_order_field' ) ) {
+	function mkwpde_kanban_board_save_order_field( $term_id ) {
+		if ( isset( $_POST['term_order'] ) ) {
+			update_term_meta( $term_id, 'order', absint( $_POST['term_order'] ) );
+		}
+	}
+}
+add_action( 'edited_kanban_column', 'mkwpde_kanban_board_save_order_field' );
+
+/**
  * Register the menu_order meta field for REST API access.
  */
 if ( ! function_exists( 'mkwpde_kanban_board_register_meta' ) ) {
