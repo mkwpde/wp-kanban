@@ -25,7 +25,7 @@ git add -A
 git commit --no-verify -m "type: description"
 
 # Push to remote
-git push https://mkwpde:$(gh auth token)@github.com/mkwpde/wp-kanban.git main
+git push https://mfgmicha:$(gh auth token)@github.com/mfgmicha/wp-kanban.git main
 
 # Or if git remote is set:
 git push
