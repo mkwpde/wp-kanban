@@ -69,13 +69,13 @@ export default function Edit() {
 			<div { ...blockProps }>
 				<Placeholder
 					icon="clipboard"
-					label={ __( 'Kanban Board', 'mkwpde-kanban-board' ) }
+					label={ __( 'Kanban Board', 'mfgmicha-kanban-board' ) }
 				>
 					<Spinner />
 					<p>
 						{ __(
 							'Loading board data...',
-							'mkwpde-kanban-board'
+							'mfgmicha-kanban-board'
 						) }
 					</p>
 				</Placeholder>
@@ -88,10 +88,10 @@ export default function Edit() {
 			<div { ...blockProps }>
 				<Placeholder
 					icon="clipboard"
-					label={ __( 'Kanban Board', 'mkwpde-kanban-board' ) }
+					label={ __( 'Kanban Board', 'mfgmicha-kanban-board' ) }
 					instructions={ __(
 						'No columns found. Create columns under Tasks > Columns in the admin, then add tasks.',
-						'mkwpde-kanban-board'
+						'mfgmicha-kanban-board'
 					) }
 				/>
 			</div>
@@ -114,7 +114,7 @@ export default function Edit() {
 								<p className="kanban-empty-preview">
 									{ __(
 										'No tasks yet',
-										'mkwpde-kanban-board'
+										'mfgmicha-kanban-board'
 									) }
 								</p>
 							) }

@@ -50,7 +50,7 @@ Commit types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore` (lower
 
 - Custom post type: `kanban_task`
 - Custom taxonomy: `kanban_column`
-- REST API under `/wp/v2/kanban-*` and `/mkwpde-kanban/v1/`
+- REST API under `/wp/v2/kanban-*` and `/mfgmicha-kanban/v1/`
 
 ## Requirements
 

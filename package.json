@@ -1,5 +1,5 @@
 {
-	"name": "mkwpde-kanban-board",
+	"name": "mfgmicha-kanban-board",
 	"version": "0.1.0",
 	"description": "A fully interactive Kanban board block with drag-and-drop task management, backed by a custom post type and taxonomy.",
 	"author": "WP Kanban",

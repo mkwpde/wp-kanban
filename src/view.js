@@ -174,7 +174,7 @@ function initKanbanBoard( board ) {
 			return;
 		}
 
-		fetch( restUrl + 'mkwpde-kanban/v1/reorder', {
+		fetch( restUrl + 'mfgmicha-kanban/v1/reorder', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -240,7 +240,7 @@ function initKanbanBoard( board ) {
 
 				btn.disabled = true;
 
-				fetch( restUrl + 'mkwpde-kanban/v1/create-task', {
+				fetch( restUrl + 'mfgmicha-kanban/v1/create-task', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -317,7 +317,7 @@ function initKanbanBoard( board ) {
 
 			card.style.opacity = '0.3';
 
-			fetch( restUrl + 'mkwpde-kanban/v1/delete-task', {
+			fetch( restUrl + 'mfgmicha-kanban/v1/delete-task', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
