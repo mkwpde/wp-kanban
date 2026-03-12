@@ -18,6 +18,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Create sample data on plugin activation.
+ */
+register_activation_hook( __FILE__, 'telex_kanban_create_sample_data' );
+
+if ( ! function_exists( 'telex_kanban_create_sample_data' ) ) {
+	function telex_kanban_create_sample_data() {
+		$columns = array(
+			'To Do'       => array( 'Design landing page', 'Set up development environment', 'Create wireframes' ),
+			'In Progress' => array( 'Implement user authentication' ),
+			'Done'        => array( 'Project kickoff meeting', 'Requirements gathering' ),
+		);
+
+		foreach ( $columns as $col_name => $tasks ) {
+			$term = wp_insert_term( $col_name, 'kanban_column' );
+			$col_id = is_wp_error( $term ) ? 0 : $term['term_id'];
+			$order  = 0;
+
+			foreach ( $tasks as $task_title ) {
+				$task_id = wp_insert_post(
+					array(
+						'post_type'   => 'kanban_task',
+						'post_title'  => $task_title,
+						'post_status' => 'publish',
+					)
+				);
+				if ( $task_id && ! is_wp_error( $task_id ) ) {
+					wp_set_object_terms( $task_id, array( $col_id ), 'kanban_column' );
+					update_post_meta( $task_id, 'kanban_order', $order ++ );
+				}
+			}
+		}
+	}
+}
+
+/**
  * Register the block.
  */
 if ( ! function_exists( 'telex_kanban_board_block_init' ) ) {
