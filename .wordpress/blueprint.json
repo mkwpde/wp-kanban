@@ -18,10 +18,6 @@
 			"pluginPath": "wp-kanban-main/plugin.php"
 		},
 		{
-			"step": "runPHP",
-			"code": "include 'wp-load.php'; $columns = array('To Do' => array('Design landing page', 'Set up development environment', 'Create wireframes'), 'In Progress' => array('Implement user authentication'), 'Done' => array('Project kickoff meeting', 'Requirements gathering')); foreach ($columns as $col_name => $tasks) { $term = wp_insert_term($col_name, 'kanban_column'); $col_id = is_wp_error($term) ? 0 : $term['term_id']; $order = 0; foreach($tasks as $task_title) { $task_id = wp_insert_post(array('post_type' => 'kanban_task', 'post_title' => $task_title, 'post_status' => 'publish')); if ($task_id && !is_wp_error($task_id)) { wp_set_object_terms($task_id, array($col_id), 'kanban_column'); update_post_meta($task_id, 'kanban_order', $order++); } } } echo 'Done';"
-		},
-		{
 			"step": "wp-cli",
 			"command": "wp post create --post_type=page --post_title='Kanban Board' --post_name='kanban' --post_content='<!-- wp:mkwpde/kanban-board /-->' --post_status=publish"
 		}
