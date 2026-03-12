@@ -93,6 +93,32 @@ if ( ! function_exists( 'mkwpde_kanban_board_register_taxonomy' ) ) {
 add_action( 'init', 'mkwpde_kanban_board_register_taxonomy' );
 
 /**
+ * Add term_order field to kanban_column taxonomy REST API.
+ */
+if ( ! function_exists( 'mkwpde_kanban_board_add_term_order_rest_field' ) ) {
+	function mkwpde_kanban_board_add_term_order_rest_field() {
+		register_rest_field(
+			'kanban_column',
+			'order',
+			array(
+				'get_callback'    => function ( $term ) {
+					return (int) get_term_meta( $term['id'], 'order', true );
+				},
+				'update_callback' => function ( $value, $term ) {
+					update_term_meta( $term->term_id, 'order', (int) $value );
+				},
+				'schema'          => array(
+					'type'        => 'integer',
+					'description' => __( 'Order of the column', 'mkwpde-kanban-board' ),
+					'default'     => 0,
+				),
+			)
+		);
+	}
+}
+add_action( 'rest_api_init', 'mkwpde_kanban_board_add_term_order_rest_field' );
+
+/**
  * Register the menu_order meta field for REST API access.
  */
 if ( ! function_exists( 'mkwpde_kanban_board_register_meta' ) ) {
@@ -209,6 +235,24 @@ if ( ! function_exists( 'mkwpde_kanban_board_register_rest_routes' ) ) {
 				},
 				'args'                => array(
 					'tasks' => array(
+						'required' => true,
+						'type'     => 'array',
+					),
+				),
+			)
+		);
+
+		register_rest_route(
+			'mkwpde-kanban/v1',
+			'/reorder-columns',
+			array(
+				'methods'             => 'POST',
+				'callback'            => 'mkwpde_kanban_board_reorder_columns',
+				'permission_callback' => function () {
+					return current_user_can( 'edit_posts' );
+				},
+				'args'                => array(
+					'columns' => array(
 						'required' => true,
 						'type'     => 'array',
 					),
@@ -346,6 +390,31 @@ if ( ! function_exists( 'mkwpde_kanban_board_reorder_tasks' ) ) {
 	}
 }
 
+if ( ! function_exists( 'mkwpde_kanban_board_reorder_columns' ) ) {
+	function mkwpde_kanban_board_reorder_columns( $request ) {
+		$columns = $request->get_param( 'columns' );
+
+		if ( ! is_array( $columns ) ) {
+			return new WP_Error( 'invalid_data', __( 'Invalid columns data.', 'mkwpde-kanban-board' ), array( 'status' => 400 ) );
+		}
+
+		foreach ( $columns as $column_data ) {
+			if ( ! isset( $column_data['id'], $column_data['order'] ) ) {
+				continue;
+			}
+			$column_id = absint( $column_data['id'] );
+			$order     = absint( $column_data['order'] );
+
+			$term = get_term( $column_id, 'kanban_column' );
+			if ( $term && ! is_wp_error( $term ) ) {
+				update_term_meta( $column_id, 'order', $order );
+			}
+		}
+
+		return rest_ensure_response( array( 'success' => true ) );
+	}
+}
+
 /**
  * Helper: Get all kanban board data.
  */
@@ -355,8 +424,9 @@ if ( ! function_exists( 'mkwpde_kanban_board_get_data' ) ) {
 			array(
 				'taxonomy'   => 'kanban_column',
 				'hide_empty' => false,
-				'orderby'    => 'term_order',
+				'orderby'    => 'meta_value_num',
 				'order'      => 'ASC',
+				'meta_key'   => 'order',
 			)
 		);
 
