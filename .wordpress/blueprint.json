@@ -18,6 +18,13 @@
 			"pluginPath": "wp-kanban-main/plugin.php"
 		},
 		{
+			"step": "importWxr",
+			"file": {
+				"resource": "bundled",
+				"path": "sample-data.wxr"
+			}
+		},
+		{
 			"step": "wp-cli",
 			"command": "wp post create --post_type=page --post_title='Kanban Board' --post_name='kanban' --post_content='<!-- wp:mkwpde/kanban-board /-->' --post_status=publish"
 		}

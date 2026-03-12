@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>Kanban Board</title>
+	<link>https://example.com</link>
+	<description>Kanban Board Demo</description>
+	<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://example.com</wp:base_site_url>
+	<wp:base_blog_url>https://example.com</wp:base_blog_url>
+	<item>
+		<title>To Do</title>
+		<link>https://example.com/kanban_column/to-do/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?term_id=1</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:term_id>1</wp:term_id>
+		<wp:term_taxonomy>kanban_column</wp:term_taxonomy>
+		<wp:term_parent>0</wp:term_parent>
+		<wp:term_slug>to-do</wp:term_slug>
+	</item>
+	<item>
+		<title>In Progress</title>
+		<link>https://example.com/kanban_column/in-progress/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?term_id=2</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:term_id>2</wp:term_id>
+		<wp:term_taxonomy>kanban_column</wp:term_taxonomy>
+		<wp:term_parent>0</wp:term_parent>
+		<wp:term_slug>in-progress</wp:term_slug>
+	</item>
+	<item>
+		<title>Done</title>
+		<link>https://example.com/kanban_column/done/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?term_id=3</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:term_id>3</wp:term_id>
+		<wp:term_taxonomy>kanban_column</wp:term_taxonomy>
+		<wp:term_parent>0</wp:term_parent>
+		<wp:term_slug>done</wp:term_slug>
+	</item>
+	<item>
+		<title>Design landing page</title>
+		<link>https://example.com/kanban_task/design-landing-page/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?post_type=kanban_task&amp;p=1</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:post_id>1</wp:post_id>
+		<wp:post_date>2026-03-12 00:00:00</wp:post_date>
+		<wp:post_date_gmt>2026-03-12 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>design-landing-page</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>kanban_task</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="kanban_column" nicename="to-do"><![CDATA[To Do]]></category>
+		<wp:postmeta>
+			<wp:meta_key>kanban_order</wp:meta_key>
+			<wp:meta_value>0</wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Set up development environment</title>
+		<link>https://example.com/kanban_task/set-up-development-environment/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?post_type=kanban_task&amp;p=2</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2026-03-12 00:00:00</wp:post_date>
+		<wp:post_date_gmt>2026-03-12 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>set-up-development-environment</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>kanban_task</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="kanban_column" nicename="to-do"><![CDATA[To Do]]></category>
+		<wp:postmeta>
+			<wp:meta_key>kanban_order</wp:meta_key>
+			<wp:meta_value>1</wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Create wireframes</title>
+		<link>https://example.com/kanban_task/create-wireframes/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?post_type=kanban_task&amp;p=3</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date>2026-03-12 00:00:00</wp:post_date>
+		<wp:post_date_gmt>2026-03-12 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>create-wireframes</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>kanban_task</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="kanban_column" nicename="to-do"><![CDATA[To Do]]></category>
+		<wp:postmeta>
+			<wp:meta_key>kanban_order</wp:meta_key>
+			<wp:meta_value>2</wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Implement user authentication</title>
+		<link>https://example.com/kanban_task/implement-user-authentication/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?post_type=kanban_task&amp;p=4</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:post_id>4</wp:post_id>
+		<wp:post_date>2026-03-12 00:00:00</wp:post_date>
+		<wp:post_date_gmt>2026-03-12 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>implement-user-authentication</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>kanban_task</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="kanban_column" nicename="in-progress"><![CDATA[In Progress]]></category>
+		<wp:postmeta>
+			<wp:meta_key>kanban_order</wp:meta_key>
+			<wp:meta_value>0</wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Project kickoff meeting</title>
+		<link>https://example.com/kanban_task/project-kickoff-meeting/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?post_type=kanban_task&amp;p=5</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:post_id>5</wp:post_id>
+		<wp:post_date>2026-03-12 00:00:00</wp:post_date>
+		<wp:post_date_gmt>2026-03-12 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>project-kickoff-meeting</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>kanban_task</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="kanban_column" nicename="done"><![CDATA[Done]]></category>
+		<wp:postmeta>
+			<wp:meta_key>kanban_order</wp:meta_key>
+			<wp:meta_value>0</wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Requirements gathering</title>
+		<link>https://example.com/kanban_task/requirements-gathering/</link>
+		<pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<guid isPermaLink="false">https://example.com/?post_type=kanban_task&amp;p=6</guid>
+		<description></description>
+		<content:encoded></content:encoded>
+		<excerpt:encoded></excerpt:encoded>
+		<wp:post_id>6</wp:post_id>
+		<wp:post_date>2026-03-12 00:00:00</wp:post_date>
+		<wp:post_date_gmt>2026-03-12 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>requirements-gathering</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>kanban_task</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="kanban_column" nicename="done"><![CDATA[Done]]></category>
+		<wp:postmeta>
+			<wp:meta_key>kanban_order</wp:meta_key>
+			<wp:meta_value>1</wp:meta_value>
+		</wp:postmeta>
+	</item>
+</channel>
+</rss>
