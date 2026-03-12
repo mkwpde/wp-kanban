@@ -5,6 +5,7 @@ WordPress Kanban Board Block plugin.
 ## General Guidelines
 
 - Always commit and push changes after completing tasks
+- Always use the `gh` CLI for GitHub operations (issues, PRs, etc.) - never use curl for GitHub API calls
 
 ## Development Commands
 
@@ -42,6 +43,8 @@ Commit types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore` (lower
 - `src/index.js` - Block registration
 - `src/edit.js` - Editor component
 - `src/save.js` - Save component
+- `src/view.js` - Frontend view script
+- `src/render.php` - Server-side render callback
 - `src/block.json` - Block metadata
 - `src/style.scss` / `src/editor.scss` - Styles
 - `.husky/` - Git hooks
