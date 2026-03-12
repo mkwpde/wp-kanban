@@ -409,3 +409,53 @@ if ( ! function_exists( 'telex_kanban_board_get_data' ) ) {
 		return $board;
 	}
 }
+
+register_activation_hook( __FILE__, 'telex_kanban_board_create_defaults' );
+
+if ( ! function_exists( 'telex_kanban_board_create_defaults' ) ) {
+	function telex_kanban_board_create_defaults() {
+		$columns = array(
+			'To Do'      => array(
+				'Design landing page',
+				'Set up development environment',
+				'Create wireframes',
+			),
+			'In Progress' => array(
+				'Implement user authentication',
+			),
+			'Done'       => array(
+				'Project kickoff meeting',
+				'Requirements gathering',
+			),
+		);
+
+		foreach ( $columns as $column_name => $tasks ) {
+			$term = get_term_by( 'name', $column_name, 'kanban_column' );
+			if ( ! $term ) {
+				$result = wp_insert_term( $column_name, 'kanban_column' );
+				if ( is_wp_error( $result ) ) {
+					continue;
+				}
+				$column_id = $result['term_id'];
+			} else {
+				$column_id = $term->term_id;
+			}
+
+			$order = 0;
+			foreach ( $tasks as $task_title ) {
+				$task_id = wp_insert_post(
+					array(
+						'post_type'   => 'kanban_task',
+						'post_title'  => $task_title,
+						'post_status' => 'publish',
+					)
+				);
+				if ( $task_id && ! is_wp_error( $task_id ) ) {
+					wp_set_object_terms( $task_id, array( $column_id ), 'kanban_column' );
+					update_post_meta( $task_id, 'kanban_order', $order );
+					++$order;
+				}
+			}
+		}
+	}
+}
