@@ -199,6 +199,17 @@ if ( ! function_exists( 'mfgmicha_kanban_board_register_meta' ) ) {
 				},
 			)
 		);
+
+		register_term_meta(
+			'kanban_column',
+			'order',
+			array(
+				'show_in_rest' => true,
+				'single'       => true,
+				'type'         => 'integer',
+				'sanitize_callback' => 'absint',
+			)
+		);
 	}
 }
 add_action( 'init', 'mfgmicha_kanban_board_register_meta' );
