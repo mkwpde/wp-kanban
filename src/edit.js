@@ -29,7 +29,7 @@ export default function Edit() {
 					let tasks = [];
 					try {
 						tasks = await apiFetch( {
-							path: `/wp/v2/kanban-tasks?kanban_column=${ col.id }&per_page=100`,
+							path: `/wp/v2/kanban-tasks?kanban_column=${ col.id }&per_page=100&orderby=meta_value_num&meta_key=kanban_order`,
 						} );
 					} catch ( e ) {
 						tasks = [];
