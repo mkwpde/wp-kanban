@@ -363,7 +363,7 @@ if ( ! function_exists( 'mfgmicha_kanban_board_get_columns' ) ) {
 		);
 
 		if ( is_wp_error( $columns ) ) {
-			return array();
+			return rest_ensure_response( array() );
 		}
 
 		$columns_data = array();
